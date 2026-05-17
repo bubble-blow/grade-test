@@ -97,10 +97,20 @@ public class MainActivity extends Activity {
     private void createLetterKeyboard(GridLayout grid) {
         String[] letterKeys = {
                 "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
-                "A", "S", "D", "F", "G", "H", "J", "K", "L",
-                "Z", "X", "C", "V", "B", "N", "M"
+                "A", "S", "D", "F", "G", "H", "J", "K", "L"
         };
         for (String key : letterKeys) {
+            addKey(grid, key, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    etName.append(((Button) v).getText());
+                }
+            });
+        }
+        addPlaceholder(grid);
+        addPlaceholder(grid);
+        String[] lastRowKeys = {"Z", "X", "C", "V", "B", "N", "M"};
+        for (String key : lastRowKeys) {
             addKey(grid, key, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -144,6 +154,20 @@ public class MainActivity extends Activity {
         b.setLayoutParams(lp);
         grid.addView(b);
     }
+
+    private void addPlaceholder(GridLayout grid) {
+        View spacer = new View(this);
+        spacer.setClickable(false);
+        spacer.setFocusable(false);
+        spacer.setBackgroundColor(0x00000000);
+        GridLayout.LayoutParams lp = new GridLayout.LayoutParams();
+        lp.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+        lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        lp.columnSpec = GridLayout.spec(GridLayout.UNDEFINED);
+        spacer.setLayoutParams(lp);
+        grid.addView(spacer);
+    }
+
 
     private void backspace(EditText et) {
         int len = et.getText().length();
