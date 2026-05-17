@@ -108,7 +108,7 @@ public class MainActivity extends Activity {
                 }
             });
         }
-        addKey(grid, "删除", new View.OnClickListener() {
+        addKey(grid, "-", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 backspace(etName);
@@ -117,13 +117,13 @@ public class MainActivity extends Activity {
     }
 
     private void createNumberKeyboard(GridLayout grid) {
-        String[] keys = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "删除"};
+        String[] keys = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-"};
         for (String key : keys) {
             addKey(grid, key, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String txt = ((Button) v).getText().toString();
-                    if ("删除".equals(txt)) {
+                    if ("-".equals(txt)) {
                         backspace(etScore);
                     } else {
                         etScore.append(txt);
