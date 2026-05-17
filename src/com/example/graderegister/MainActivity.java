@@ -95,8 +95,13 @@ public class MainActivity extends Activity {
     }
 
     private void createLetterKeyboard(GridLayout grid) {
-        for (char c = 'A'; c <= 'Z'; c++) {
-            addKey(grid, String.valueOf(c), new View.OnClickListener() {
+        String[] letterKeys = {
+                "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
+                "A", "S", "D", "F", "G", "H", "J", "K", "L",
+                "Z", "X", "C", "V", "B", "N", "M"
+        };
+        for (String key : letterKeys) {
+            addKey(grid, key, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     etName.append(((Button) v).getText());
