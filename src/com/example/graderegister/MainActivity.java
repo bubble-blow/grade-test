@@ -133,9 +133,9 @@ public class MainActivity extends Activity {
         b.setText(text);
         b.setOnClickListener(listener);
         GridLayout.LayoutParams lp = new GridLayout.LayoutParams();
-        lp.width = 0;
+        lp.width = ViewGroup.LayoutParams.WRAP_CONTENT;
         lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        lp.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
+        lp.columnSpec = GridLayout.spec(GridLayout.UNDEFINED);
         b.setLayoutParams(lp);
         grid.addView(b);
     }
