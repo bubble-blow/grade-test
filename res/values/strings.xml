@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">成绩登记助手</string>
+    <string name="import_list">导入名单</string>
+    <string name="export_list">导出名单</string>
+    <string name="write_score">写入</string>
+</resources>
